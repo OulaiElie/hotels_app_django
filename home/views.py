@@ -119,7 +119,7 @@ def login_page(request):
         return redirect('/')
 
         
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    
     return render(request ,'login.html')
 
 
