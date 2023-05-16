@@ -11,10 +11,22 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='chambre',
+            name='Chambre',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('type_de_chambre', models.CharField(choices=[('standard', 'standard'), ('luxe', 'luxe'), ('familial', 'familial')], max_length=20)),
+                ('id', models.AutoField(
+                    auto_created=True,
+                    primary_key=True,
+                    serialize=False,
+                    verbose_name='ID'
+                )),
+                ('type_de_chambre', models.CharField(
+                    choices=[
+                        ('standard', 'standard'),
+                        ('luxe', 'luxe'),
+                        ('familial', 'familial')
+                    ],
+                    max_length=20
+                )),
                 ('description', models.TextField()),
                 ('prix', models.DecimalField(decimal_places=2, max_digits=8)),
             ],

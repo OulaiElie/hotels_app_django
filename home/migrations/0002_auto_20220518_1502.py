@@ -14,11 +14,19 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='hotelbooking',
             name='hotel',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='hotel_bookings', to='home.hotel'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name='hotel_bookings',
+                to='home.hotel'
+            ),
         ),
         migrations.AlterField(
             model_name='hotelimages',
             name='hotel',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='images', to='home.hotel'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name='images',
+                to='home.hotel'
+            ),
         ),
     ]

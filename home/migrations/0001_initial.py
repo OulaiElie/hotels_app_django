@@ -18,7 +18,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Amenities',
             fields=[
-                ('uid', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+                ('uid', models.UUIDField(
+                    default=uuid.uuid4,
+                    editable=False,
+                    primary_key=True,
+                    serialize=False
+                )),
                 ('created_at', models.DateField(auto_now_add=True)),
                 ('updated_at', models.DateField(auto_now_add=True)),
                 ('amenity_name', models.CharField(max_length=100)),
@@ -30,7 +35,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Hotel',
             fields=[
-                ('uid', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+                ('uid', models.UUIDField(
+                    default=uuid.uuid4,
+                    editable=False,
+                    primary_key=True,
+                    serialize=False
+                )),
                 ('created_at', models.DateField(auto_now_add=True)),
                 ('updated_at', models.DateField(auto_now_add=True)),
                 ('hotel_name', models.CharField(max_length=100)),
@@ -46,11 +56,19 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='HotelImages',
             fields=[
-                ('uid', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+                ('uid', models.UUIDField(
+                    default=uuid.uuid4,
+                    editable=False,
+                    primary_key=True,
+                    serialize=False
+                )),
                 ('created_at', models.DateField(auto_now_add=True)),
                 ('updated_at', models.DateField(auto_now_add=True)),
                 ('images', models.ImageField(upload_to='hotels')),
-                ('hotel', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='home.hotel')),
+                ('hotel', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    to='home.hotel'
+                )),
             ],
             options={
                 'abstract': False,
@@ -59,14 +77,32 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='HotelBooking',
             fields=[
-                ('uid', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+                ('uid', models.UUIDField(
+                    default=uuid.uuid4,
+                    editable=False,
+                    primary_key=True,
+                    serialize=False
+                )),
                 ('created_at', models.DateField(auto_now_add=True)),
                 ('updated_at', models.DateField(auto_now_add=True)),
                 ('start_date', models.DateField()),
                 ('end_date', models.DateField()),
-                ('booking_type', models.CharField(choices=[('Pre Paid', 'Pre Paid'), ('Post Paid', 'Post Paid')], max_length=100)),
-                ('hotel', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='home.hotel')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='user_bookings', to=settings.AUTH_USER_MODEL)),
+                ('booking_type', models.CharField(
+                    choices=[
+                        ('Pre Paid', 'Pre Paid'),
+                        ('Post Paid', 'Post Paid')
+                    ],
+                    max_length=100
+                )),
+                ('hotel', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    to='home.hotel'
+                )),
+                ('user', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    related_name='user_bookings',
+                    to=settings.AUTH_USER_MODEL
+                )),
             ],
             options={
                 'abstract': False,
